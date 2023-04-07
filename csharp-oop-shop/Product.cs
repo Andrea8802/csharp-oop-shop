@@ -22,10 +22,7 @@ namespace csharp_oop_shop
 
         Random rand = new Random();
 
-        public decimal fullPrice(decimal Prezzo)
-        {
-            return Prezzo * 22 / 100;
-        }
+        
 
         public Product(string nome, string descrizione, decimal prezzo, int iva)
         {
@@ -35,6 +32,30 @@ namespace csharp_oop_shop
             Prezzo = prezzo;
             Iva = iva;
 
+        }
+
+        public decimal FullPrice(decimal prezzo, int iva)
+        {
+            return prezzo += prezzo * iva / 100;
+        }
+
+        public string FullName(string nome, int codice)
+        {
+            return nome + codice;
+        }
+
+        public string FullCode(int codice)
+        {
+            string codeString = codice.ToString();
+
+            if (codeString.Length >= 8)
+            {
+                return codeString;
+            }
+            else
+            {
+                return codeString.PadLeft(8, '0');
+            }
         }
 
     }
